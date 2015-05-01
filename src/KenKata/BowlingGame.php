@@ -17,9 +17,9 @@ class BowlingGame
         $frameIndex = 0;
         for ($frame = 0; $frame < 10; $frame++) {
             if ($this->isSpare($frameIndex)) {
-                $this->score += 10 + $this->rolls[$frameIndex+2];
+                $this->score += 10 + $this->rolls[$frameIndex + 2];
             } else {
-                $this->score += $this->rolls[$frameIndex] + $this->rolls[$frameIndex+1];
+                $this->score += $this->sumOfPinsInTheFrame($frameIndex);
             }
             $frameIndex += 2;
         }
@@ -30,5 +30,14 @@ class BowlingGame
     private function isSpare($frameIndex)
     {
         return $this->rolls[$frameIndex] + $this->rolls[$frameIndex + 1] == 10;
+    }
+
+    private function sumOfPinsInTheFrame($frameIndex)
+    {
+        if (isset($this->rolls[$frameIndex], $this->rolls[$frameIndex + 1])) {
+            return $this->rolls[$frameIndex] + $this->rolls[$frameIndex + 1];
+        }
+
+        throw new \Exception('Frame index is out of range, check your code.');
     }
 }
