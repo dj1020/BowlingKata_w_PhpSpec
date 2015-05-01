@@ -14,8 +14,8 @@ class BowlingGame
 
     public function score()
     {
-        foreach ($this->rolls as $pin) {
-            $this->score += $pin;
+        for ($i = 0; $i < 20; $i++) {
+            $this->score += $this->rolls[$i];
         }
 
         return $this->score;
