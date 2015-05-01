@@ -22,9 +22,7 @@ class BowlingGameSpec extends ObjectBehavior
     {
         $n = 20;
         $pin = 0;
-        for ($i = 0; $i < $n; $i++) {
-            $this->roll($pin);
-        }
+        $this->rollMany($n, $pin);
 
         $this->score()->shouldReturn(0);
     }
@@ -36,6 +34,17 @@ class BowlingGameSpec extends ObjectBehavior
         }
 
         $this->score()->shouldReturn(20);
+    }
+
+    /**
+     * @param $n
+     * @param $pin
+     */
+    private function rollMany($n, $pin)
+    {
+        for ($i = 0; $i < $n; $i++) {
+            $this->roll($pin);
+        }
     }
 
 }
