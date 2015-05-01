@@ -18,6 +18,13 @@ class BowlingGameSpec extends ObjectBehavior
         $this->shouldHaveType('KenKata\BowlingGame');
     }
 
+    private function rollMany($n, $pin)
+    {
+        for ($i = 0; $i < $n; $i++) {
+            $this->roll($pin);
+        }
+    }
+
     function it_should_score_zero()
     {
         $this->rollMany(20, 0);
@@ -26,22 +33,8 @@ class BowlingGameSpec extends ObjectBehavior
 
     function it_should_score_20()
     {
-        for ($i = 0; $i < 20; $i++) {
-            $this->roll(1);
-        }
-
+        $this->rollMany(20, 1);
         $this->score()->shouldReturn(20);
-    }
-
-    /**
-     * @param $n
-     * @param $pin
-     */
-    private function rollMany($n, $pin)
-    {
-        for ($i = 0; $i < $n; $i++) {
-            $this->roll($pin);
-        }
     }
 
 }
