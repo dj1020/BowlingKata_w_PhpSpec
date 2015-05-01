@@ -25,6 +25,12 @@ class BowlingGameSpec extends ObjectBehavior
         }
     }
 
+    private function rollSpare()
+    {
+        $this->rollMany(1, 6);
+        $this->rollMany(1, 4);
+    }
+
     function it_should_score_zero()
     {
         $this->rollMany(20, 0);
@@ -39,8 +45,7 @@ class BowlingGameSpec extends ObjectBehavior
 
     function it_should_score_for_one_spare()
     {
-        $this->rollMany(1, 6);
-        $this->rollMany(1, 4);
+        $this->rollSpare();
         $this->rollMany(1, 7);
         $this->rollMany(17, 0);
 
