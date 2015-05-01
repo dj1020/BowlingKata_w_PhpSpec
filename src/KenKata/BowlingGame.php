@@ -14,15 +14,10 @@ class BowlingGame
 
     public function score()
     {
-        for ($i = 0; $i < 20; $i++) {
-            if ($this->rolls[$i] + $this->rolls[$i + 1] == 10) {
-                $this->score += 10 + $this->rolls[$i+2];
-                // wrong logic here
-            } else {
-                $this->score += $this->rolls[$i];
-            }
+        for ($frame = 0; $frame < 10; $frame++) {
+            $this->score += $this->rolls[$frame] + $this->rolls[$frame+1];
         }
-
+ 
         return $this->score;
     }
 }
