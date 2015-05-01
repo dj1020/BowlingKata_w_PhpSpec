@@ -20,10 +20,7 @@ class BowlingGameSpec extends ObjectBehavior
 
     function it_should_score_zero()
     {
-        $n = 20;
-        $pin = 0;
-        $this->rollMany($n, $pin);
-
+        $this->rollMany(20, 0);
         $this->score()->shouldReturn(0);
     }
 
