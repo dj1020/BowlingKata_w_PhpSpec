@@ -4,7 +4,6 @@ namespace KenKata;
 
 class BowlingGame
 {
-
     private $score = 0;
 
     public function roll($pin)
