@@ -37,14 +37,14 @@ class BowlingGameSpec extends ObjectBehavior
         $this->score()->shouldReturn(20);
     }
 
-//    function it_should_score_for_one_spare()
-//    {
-//        $this->rollMany(1, 6);
-//        $this->rollMany(1, 4);
-//        $this->rollMany(1, 7);
-//        $this->rollMany(17, 0);
-//
-//        $this->score()->shouldReturn(24);
-//    }
+    function it_should_score_for_one_spare()
+    {
+        $this->rollMany(1, 6);
+        $this->rollMany(1, 4);
+        $this->rollMany(1, 7);
+        $this->rollMany(17, 0);
+
+        $this->score()->shouldReturn(24);
+    }
 
 }
