@@ -5,13 +5,15 @@ namespace KenKata;
 class BowlingGame
 {
 
-    public function roll($argument1)
+    private $score = 0;
+
+    public function roll($pin)
     {
-        // TODO: write logic here
+        $this->score += $pin;
     }
 
     public function score()
     {
-        return 0;
+        return $this->score;
     }
 }
