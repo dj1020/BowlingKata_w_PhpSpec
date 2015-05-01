@@ -17,10 +17,10 @@ class BowlingGame
         $frameIndex = 0;
         for ($frame = 0; $frame < 10; $frame++) {
             if ($this->isStrike($frameIndex)) {
-                $this->score += 10 + $this->strikeBouns($frameIndex);
+                $this->score += 10 + $this->strikeBonus($frameIndex);
                 $frameIndex += 1;
             } else if ($this->isSpare($frameIndex)) {
-                $this->score += 10 + $this->spareBouns($frameIndex);
+                $this->score += 10 + $this->spareBonus($frameIndex);
                 $frameIndex += 2;
             } else {
                 $this->score += $this->sumOfPinsInTheFrame($frameIndex);
@@ -50,12 +50,12 @@ class BowlingGame
         throw new \Exception('Frame index is out of range, check your code.');
     }
 
-    private function strikeBouns($frameIndex)
+    private function strikeBonus($frameIndex)
     {
         return $this->rolls[$frameIndex+1] + $this->rolls[$frameIndex+2];
     }
 
-    private function spareBouns($frameIndex)
+    private function spareBonus($frameIndex)
     {
         return $this->rolls[$frameIndex + 2];
     }
